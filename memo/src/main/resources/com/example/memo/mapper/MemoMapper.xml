@@ -12,21 +12,21 @@
     </resultMap>
 
     <select id="findAll" resultMap="MemoResultMap">
-        SELECT id, title, detail, created_at, updated_at FROM memo ORDER BY id
+        SELECT id, title, detail, created_at, updated_at FROM memos ORDER BY id
     </select>
 
     <select id="findById" resultMap="MemoResultMap">
-        SELECT id, title, detail, created_at, updated_at FROM memo 
+        SELECT id, title, detail, created_at, updated_at FROM memos 
         WHERE id = #{id}
     </select>
 
     <insert id="insert" parameterType="com.example.memo.entity.Memo">
-        INSERT INTO memo (title, detail, created_at, updated_at)
+        INSERT INTO memos (title, detail, created_at, updated_at)
         VALUES (#{title}, #{detail}, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
     </insert>
 
     <update id="update" parameterType="com.example.memo.entity.Memo">
-        UPDATE memo 
+        UPDATE memos 
         SET title = #{title},
             detail = #{detail},
             updated_at = CURRENT_TIMESTAMP
@@ -34,7 +34,7 @@
     </update>
 
     <delete id="delete" parameterType="int">
-        DELETE FROM memo WHERE id = #{id}
+        DELETE FROM memos WHERE id = #{id}
     </delete>
 
 </mapper>
